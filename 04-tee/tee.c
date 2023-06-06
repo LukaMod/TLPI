@@ -65,7 +65,7 @@ int main(int argc, char** argv) {
     }
 
     int ch;
-    const char options[] = "a:";
+    const char options[] = "a:h";
     char* file = argv[1];
     int mode = O_TRUNC;
 
@@ -77,8 +77,13 @@ int main(int argc, char** argv) {
             mode = O_APPEND;
             break;
         
+        case 'h':
+            usage();
+            return 0;
+
         default:
-            break;
+            usage();
+            return -1;
         }
     }
 
